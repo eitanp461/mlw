@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <!-- Custom CSS and other head elements go here -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://media-library.cloudinary.com/global/all.js"></script>
+</head>
+<body>
+    <!-- Content of your webpage goes here -->
+    <button id="my_btn" onclick="window.ml.show()">Open media library</button>
+    <!-- Custom JavaScript goes here -->
+    <script>
+        // Your custom JavaScript code
+        const config = {
+            cloud_name: 'dufqz7m7e',
+          api_key: '713388239698437',
+            remove_header: true,
+        };
+
+        function insertHandler(data) {
+            console.log(JSON.stringify(data));
+        }
+
+        window.ml = cloudinary.createMediaLibrary(
+            config,
+            { insertHandler: insertHandler,
+                hideHandler: () => console.log('hide'),
+            },
+            "#my_btn"
+        );
+
+    </script>
+</body>
+</html>
+
